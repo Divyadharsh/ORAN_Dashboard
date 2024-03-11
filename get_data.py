@@ -69,7 +69,7 @@ class Database:
         
         for i in range(len(word_groups)):
             #All these words should be completely capialized like SINR
-            if word_groups[i] in ['rx','ul','prb','tx','sinr','mcs']:
+            if word_groups[i] in ['rx','dl','prb','tx','cqi','mcs']:
                 word_groups[i] = word_groups[i].upper()
             else:
                 word_groups[i] = word_groups[i][0].upper() + word_groups[i][1:]
@@ -83,9 +83,9 @@ class Database:
     def load_csv(self,db_name='csv'):
         self.db = self.client[db_name]
         
-        self.graph_columns = ["rx_brate uplink [Mbps]","ul_sinr",
+        self.graph_columns = ["rx_brate uplink [Mbps]","dl_cqi",
            "sum_requested_prbs","tx_brate downlink [Mbps]",
-           "ul_mcs","sum_granted_prbs"]
+           "dl_mcs","sum_granted_prbs"]
         
         self.graph_x_values = {}
         self.graph_y_values = {}
